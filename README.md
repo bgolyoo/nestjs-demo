@@ -28,6 +28,8 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+Also, following the guide at https://wanago.io/2020/05/11/nestjs-api-controllers-routing-module/
+
 ## Installation
 
 ```bash
