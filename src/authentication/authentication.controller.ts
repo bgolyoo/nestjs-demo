@@ -11,9 +11,9 @@ import {
 } from '@nestjs/common';
 import { AuthenticationService } from './authentication.service';
 import RegisterDto from './dto/register.dto';
+import { JwtAuthenticationGuard } from './jwt-authentication.guard';
 import { LocalAuthenticationGuard } from './local-authentication.guard';
 import RequestWithUser from './request-with-user.interface';
-import { JwtAuthenticationGuard } from './jwt-authentication.guard';
 
 @Controller('authentication')
 @UseInterceptors(ClassSerializerInterceptor)
@@ -39,7 +39,10 @@ export class AuthenticationController {
   @Post('logout')
   @HttpCode(200)
   async logout(@Req() request: RequestWithUser) {
-    request.res.setHeader('Set-Cookie', this.authenticationService.getCookieForLogOut());
+    request.res.setHeader(
+      'Set-Cookie',
+      this.authenticationService.getCookieForLogOut()
+    );
   }
 
   @UseGuards(JwtAuthenticationGuard)

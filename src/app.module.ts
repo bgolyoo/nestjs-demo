@@ -1,10 +1,11 @@
-import { Module } from '@nestjs/common';
-import { UsersModule } from './users/users.module';
-import { AuthenticationModule } from './authentication/authentication.module';
-import { PostsModule } from './posts/posts.module';
-import { ConfigModule } from '@nestjs/config';
-import { DatabaseModule } from './database/database.module';
 import * as Joi from '@hapi/joi';
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { CategoriesModule } from './categories/categories.module';
+import { DatabaseModule } from './database/database.module';
+import { PostsModule } from './posts/posts.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import * as Joi from '@hapi/joi';
     DatabaseModule,
     UsersModule,
     AuthenticationModule,
-    PostsModule
+    PostsModule,
+    CategoriesModule
   ],
   controllers: [],
   providers: []
